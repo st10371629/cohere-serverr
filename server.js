@@ -215,7 +215,7 @@ app.post('/generate', async (req, res) => {
       documents: topDocuments.map(doc => ({
         text: `${doc.data.title}. ${doc.data.snippet}`
       })),
-      preamble: 'You are an expert travel assistant. Answer questions using only the provided documents.'
+      preamble: 'You are an expert travel assistant at Y-Travels. Answer questions using the provided documents if something is not included, use your own knowledge but only answer in the context of tourism and travel. Only speak about travel, places, geography, history, sites to visit in each country, cuisine, activities, etc'
     });
 
     console.log('Cohere chat response:', JSON.stringify(response, null, 2));

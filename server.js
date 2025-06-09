@@ -24,7 +24,7 @@ app.post('/generate', async (req, res) => {
     // Start chat stream
     const stream = await cohere.chatStream({
       model: "be8fa8b0-162a-47b6-b20a-e9aded1601be-ft", // your fine-tuned model
-      message: prompt
+      message: "answer as a travel agent"+ prompt
     });
 
     // We'll accumulate the stream output

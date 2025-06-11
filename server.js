@@ -239,7 +239,7 @@ app.post('/holiday', async (req, res) => {
     const response = await cohere.chat({
       message: `Generate a holiday itinerary based on this request: "${userInput}". Format the response as Day-wise itinerary.`,
       temperature: 0.7,
-      max_tokens: 500
+      max_tokens: 1000
     });
 
     res.json({ itinerary: response.text });

@@ -231,6 +231,23 @@ app.post('/generate', async (req, res) => {
   }
 });
 
+app.post('/holiday', async (req, res) => {
+  const { userInput } = req.body;
+
+  try {
+    const response = await cohere.chat({
+      message: `Generate a holiday itinerary based on this request: "${userInput}". Format the response as Day-wise itinerary.`,
+      temperature: 0.7,
+      max_tokens: 500
+    });
+
+    res.json({ itinerary: response.text });
+  } catch (err) {
+    console.error('Error:', err);
+    res.status(500).json({ error: 'Failed to generate itinerary' });
+  }
+});
+
 app.listen(5000, () => {
   console.log('Listening on http://localhost:5000');
 });
